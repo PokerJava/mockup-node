@@ -1,0 +1,12 @@
+{
+    "apps":[
+        {
+            "name":"mockup-cmd-api",
+            "script":"./bin/www",
+            "env":{
+                "PORT":3000,
+                "NODE_ENV":"prod"
+            }
+        }
+    ]
+}
