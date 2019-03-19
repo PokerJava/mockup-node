@@ -1,7 +1,7 @@
 const express = require("express");
 const notifyRouter = new express.Router();
 const mongoose = require("mongoose");
-const NotifyTargets = mongoose.model("NotifyTargets");
+const NotifyBroadcasts = mongoose.model("NotifyBroadcasts");
 const { resultCode } = require("../../../../utils");
 const randomstring = require("randomstring");
 
@@ -12,12 +12,12 @@ notifyRouter
       let limit = query.limit ? parseInt(query.limit) : 10;
       let page =
         query.page && query.page != 0 ? (parseInt(query.page) - 1) * limit : 0;
-      let notifyData = await NotifyTargets.find()
+      let notifyData = await NotifyBroadcasts.find()
         .limit(limit)
         .skip(page)
         .sort(query.orderby)
         .select(query.fields);
-      let rowCount = await NotifyTargets.countDocuments();
+      let rowCount = await NotifyBroadcasts.countDocuments();
       buildMessage = {
         ...resultCode(20000),
         resultData: notifyData,
@@ -29,10 +29,12 @@ notifyRouter
       return res.json(buildMessage);
     }
   })
-  .get("/:targetId", async (req, res, next) => {
+  .get("/:msgId", async (req, res, next) => {
     try {
       let params = req.params;
-      let notifyData = await NotifyTargets.find({ targetId: params.targetId });
+      let notifyData = await NotifyBroadcasts.find({
+        msgId: params.msgId
+      });
       buildMessage = { ...resultCode(20000), resultData: notifyData };
       return res.json(buildMessage);
     } catch (err) {
@@ -43,15 +45,15 @@ notifyRouter
   .post("/", async (req, res, next) => {
     let body = {
       ...req.body,
-      targetId: `TargetVMT-${randomstring.generate()}`
+      msgId: `TargetVMT-${randomstring.generate()}`
     };
     let buildMessage = {};
     delete body.dateCreated;
     try {
-      let notifyData = await NotifyTargets.create(body);
+      let notifyData = await NotifyBroadcasts.create(body);
       buildMessage = {
         ...resultCode(20000),
-        resultData: [{ targetId: notifyData["targetId"] }]
+        resultData: [{ msgId: notifyData["msgId"] }]
       };
       return res.json(buildMessage);
     } catch (err) {
@@ -59,12 +61,12 @@ notifyRouter
       return res.json(buildMessage);
     }
   })
-  .put("/:targetId", async (req, res, next) => {
+  .put("/:msgId", async (req, res, next) => {
     let body = req.body;
     let params = req.params;
     try {
       let notifyData = await Users.findOneAndUpdate(
-        { targetId: params.targetId },
+        { msgId: params.msgId },
         body,
         {
           new: true
@@ -77,11 +79,11 @@ notifyRouter
       return res.json(buildMessage);
     }
   })
-  .delete("/:targetId", async (req, res, next) => {
+  .delete("/:msgId", async (req, res, next) => {
     let params = req.params;
     try {
       await Users.findOneAndRemove({
-        targetId: params.targetId
+        msgId: params.msgId
       });
       buildMessage = { ...resultCode(20000) };
       return res.json(buildMessage);

@@ -1,4 +1,7 @@
-const notifies = require("./notifies");
+const NotifyTargets = require("./NotifyTargets");
+const NotifyBroadcasts = require("./NotifyBroadcasts");
+
 module.exports = {
-  NotifiesSchema: notifies
+  NotifyTargetSchema: NotifyTargets,
+  NotifyBroadcastSchema: NotifyBroadcasts
 };
