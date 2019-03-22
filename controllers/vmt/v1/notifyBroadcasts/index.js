@@ -16,7 +16,7 @@ notifyRouter
         .limit(limit)
         .skip(page)
         .sort(query.orderby)
-        .select(query.fields);
+        .select(query.fields ? query.fields.replace(/,/g, " ") : "");
       let rowCount = await NotifyBroadcasts.countDocuments();
       buildMessage = {
         ...resultCode(20000),
@@ -65,7 +65,7 @@ notifyRouter
     let body = req.body;
     let params = req.params;
     try {
-      let notifyData = await Users.findOneAndUpdate(
+      let notifyData = await NotifyBroadcasts.findOneAndUpdate(
         { msgId: params.msgId },
         body,
         {
@@ -82,7 +82,7 @@ notifyRouter
   .delete("/:msgId", async (req, res, next) => {
     let params = req.params;
     try {
-      await Users.findOneAndRemove({
+      await NotifyBroadcasts.findOneAndRemove({
         msgId: params.msgId
       });
       buildMessage = { ...resultCode(20000) };
