@@ -18,6 +18,14 @@ module.exports = {
     type: String,
     default: ""
   },
+  building_id: {
+    type: Number,
+    default: null
+  },
+  floor_id: {
+    type: Number,
+    default: null
+  },
   eventId: [
     {
       type: String,
