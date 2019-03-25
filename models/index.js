@@ -3,7 +3,8 @@ const Schema = mongoose.Schema;
 const {
   NotifyTargetSchema,
   NotifyBroadcastSchema,
-  NotifyPOISchema
+  NotifyPOISchema,
+  EventSchema
 } = require("./schema");
 
 let NotifyTargets = new Schema(NotifyTargetSchema);
@@ -13,6 +14,7 @@ let NotifyPOIs = new Schema(NotifyPOISchema);
 mongoose.model("NotifyTargets", NotifyTargets);
 mongoose.model("NotifyBroadcasts", NotifyBroadcasts);
 mongoose.model("NotifyPOIs", NotifyPOIs);
+mongoose.model("Events", EventSchema);
 
 // Mongoose connection to MongoDB
 mongoose.set("useCreateIndex", true);
