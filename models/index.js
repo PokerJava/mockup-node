@@ -1,12 +1,19 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const { NotifyTargetSchema, NotifyBroadcastSchema } = require("./schema");
+const {
+  NotifyTargetSchema,
+  NotifyBroadcastSchema,
+  NotifyPOISchema
+} = require("./schema");
 
 let NotifyTargets = new Schema(NotifyTargetSchema);
 let NotifyBroadcasts = new Schema(NotifyBroadcastSchema);
+let NotifyPOIs = new Schema(NotifyPOISchema);
 
 mongoose.model("NotifyTargets", NotifyTargets);
 mongoose.model("NotifyBroadcasts", NotifyBroadcasts);
+mongoose.model("NotifyPOIs", NotifyPOIs);
+
 // Mongoose connection to MongoDB
 mongoose.set("useCreateIndex", true);
 mongoose.set("useNewUrlParser", true);

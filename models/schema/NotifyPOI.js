@@ -7,18 +7,8 @@ module.exports = {
     default: ""
   },
   notiName: {
-    en: {
-      type: String,
-      default: ""
-    },
-    th: {
-      type: String,
-      default: ""
-    },
-    cn: {
-      type: String,
-      default: ""
-    }
+    type: String,
+    default: ""
   },
   contentId: {
     type: String,
@@ -28,10 +18,12 @@ module.exports = {
     type: String,
     default: ""
   },
-  targetId: {
-    type: String,
-    default: ""
-  },
+  eventId: [
+    {
+      type: String,
+      required: true
+    }
+  ],
   headlineThumb: {
     en: {
       type: String,
@@ -113,7 +105,11 @@ module.exports = {
     default: ""
   },
   dateCreated: {
-    type: Date,
-    default: new Date()
+    type: String,
+    default: ""
+  },
+  dateUpdated: {
+    type: String,
+    default: ""
   }
 };
