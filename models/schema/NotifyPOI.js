@@ -18,18 +18,20 @@ module.exports = {
     type: String,
     default: ""
   },
-  building_id: {
-    type: Number,
-    default: null
-  },
-  floor_id: {
-    type: Number,
-    default: null
-  },
   eventId: [
     {
-      type: String,
-      required: true
+      building_id: {
+        type: Number,
+        default: null
+      },
+      floor_id: {
+        type: Number,
+        default: null
+      },
+      event_id: {
+        type: Number,
+        default: null
+      }
     }
   ],
   headlineThumb: {
