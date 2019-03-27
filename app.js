@@ -5,6 +5,7 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const vmtRouter = require("./controllers/vmt");
+const shopRouter = require("./controllers/shop");
 const externalAPIRouter = require("./controllers/externalAPIRouter");
 const app = express();
 const cors = require("cors");
@@ -21,6 +22,8 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/vmt", vmtRouter);
 app.use("/ExternalAPI", externalAPIRouter);
+app.use("/shop", shopRouter);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
