@@ -22,7 +22,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/vmt", vmtRouter);
 app.use("/ExternalAPI", externalAPIRouter);
-app.use("/shop", shopRouter);
+app.use("/api/shop-cdns/upload", shopRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
