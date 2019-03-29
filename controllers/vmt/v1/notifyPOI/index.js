@@ -6,7 +6,7 @@ const { resultCode } = require("../../../../utils");
 const randomstring = require("randomstring");
 
 notifyRouter
-  .get("/view", async (req, res, next) => {
+  .get("/", async (req, res, next) => {
     try {
       let query = req.query;
       let limit = query.limit ? parseInt(query.limit) : 10;

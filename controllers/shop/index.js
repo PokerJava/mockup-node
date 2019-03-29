@@ -17,7 +17,7 @@ notifyRouter
   .post("/", async (req, res, next) => {
     try {
       let buildMessage = {
-        imageUrl: "206.189.41.105:5000/shop/850105679427509.jpg",
+        imageUrl: "206.189.41.105:9001/shop/850105679427509.jpg",
         // imageUrl: "localhost:5555/shop/850105679427509.jpg",
         name: "850105679427509.jpg",
         size: 969465,
