@@ -31,15 +31,15 @@ module.exports = {
   eventId: [
     {
       building_id: {
-        type: Number,
+        type: String,
         default: null
       },
       floor_id: {
-        type: Number,
+        type: String,
         default: null
       },
       event_id: {
-        type: Number,
+        type: String,
         default: null
       }
     }
