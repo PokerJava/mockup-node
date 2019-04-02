@@ -7,8 +7,18 @@ module.exports = {
     default: ""
   },
   notiName: {
-    type: String,
-    default: ""
+    en: {
+      type: String,
+      default: ""
+    },
+    th: {
+      type: String,
+      default: ""
+    },
+    cn: {
+      type: String,
+      default: ""
+    }
   },
   contentId: {
     type: String,
