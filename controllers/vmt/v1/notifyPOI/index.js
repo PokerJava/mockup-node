@@ -42,8 +42,8 @@ notifyRouter
   })
   .post("/", async (req, res, next) => {
     let body = {
-      ...req.body
-      // msgId: `TargetVMT-${randomstring.generate()}`
+      ...req.body,
+      msgId: `TargetVMT-${randomstring.generate()}`
     };
     let buildMessage = {};
     delete body.dateCreated;
