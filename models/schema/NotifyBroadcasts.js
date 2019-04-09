@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 module.exports = {
   mallId: {
-    type: Number,
+    type: String,
     default: null
   },
   msgId: {
