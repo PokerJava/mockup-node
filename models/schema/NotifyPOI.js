@@ -2,6 +2,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 module.exports = {
+  mallId: {
+    type: String,
+    default: ""
+  },
   msgId: {
     type: String,
     default: ""
