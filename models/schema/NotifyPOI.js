@@ -129,8 +129,8 @@ module.exports = {
     default: ""
   },
   dateCreated: {
-    type: String,
-    default: ""
+    type: Date,
+    default: Date.now
   },
   dateUpdated: {
     type: String,
