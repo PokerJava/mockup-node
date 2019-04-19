@@ -30,7 +30,7 @@ module.exports = {
         type: String,
         required: true
       },
-      subInterest: [
+      subInterestId: [
         {
           type: String,
           required: true
