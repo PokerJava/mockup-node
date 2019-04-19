@@ -26,16 +26,24 @@ module.exports = {
   },
   interest: [
     {
-      type: String,
-      required: true
+      interestId: {
+        type: String,
+        required: true
+      },
+      subInterest: [
+        {
+          type: String,
+          required: true
+        }
+      ]
     }
   ],
-  subInterest: [
-    {
-      type: String,
-      required: true
-    }
-  ],
+  // subInterest: [
+  //   {
+  //     type: String,
+  //     required: true
+  //   }
+  // ],
   vizCardType: [
     {
       type: String,
