@@ -12,7 +12,8 @@ require("dotenv").config({
 var app = require("../app");
 var debug = require("debug")("cmf-api:server");
 var http = require("http");
-
+const https = require("https");
+const fs = require("fs");
 /**
  * Get port from environment and store in Express.
  */
@@ -20,11 +21,17 @@ var http = require("http");
 var port = normalizePort(process.env.PORT || "3000");
 app.set("port", port);
 
-/**
- * Create HTTP server.
- */
-
 var server = http.createServer(app);
+if (process.env.NODE_ENV === "prod") {
+  const key = fs.readFileSync(__dirname + "/../ssl/server.key");
+  const cert = fs.readFileSync(__dirname + "/../ssl/server.crt");
+  const options = {
+    key: key,
+    cert: cert
+  };
+  server = https.createServer(options, app);
+  console.log("Protocal HTTPS");
+}
 
 /**
  * Listen on provided port, on all network interfaces.
