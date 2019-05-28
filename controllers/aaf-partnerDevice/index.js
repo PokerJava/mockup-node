@@ -2,7 +2,7 @@ const express = require("express");
 const serverRouter = new express.Router();
 
 serverRouter
-  .post("/:idType/:idValue.json ", async (req, res, next) => {
+  .post("/:idType/:idValue.json", async (req, res, next) => {
     let resp = !req.query["notFound"]
       ? {
           resultCode: "20000",
@@ -22,7 +22,7 @@ serverRouter
         };
     return res.json(resp);
   })
-  .get("/:idType/:idValue.json ", async (req, res, next) => {
+  .get("/:idType/:idValue.json", async (req, res, next) => {
     let resp = !req.query["notFound"]
       ? {
           resultCode: "20000",
