@@ -9,6 +9,7 @@ const shopRouter = require("./controllers/shop");
 const serverRouter = require("./controllers/server");
 const profileRouter = require("./controllers/profile");
 const sessionRouter = require("./controllers/session");
+const aafSubscriptionsRouter = require("./controllers/aaf-subscriptions");
 const externalAPIRouter = require("./controllers/externalAPIRouter");
 const app = express();
 const cors = require("cors");
@@ -30,6 +31,7 @@ app.use("/api/shop-cdns/upload", shopRouter);
 app.use("/profile", profileRouter);
 app.use("/server", serverRouter);
 app.use("/session", sessionRouter);
+app.use("/aaf/v1.4.4/subscriptions", aafSubscriptionsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
