@@ -12,6 +12,7 @@ const sessionRouter = require("./controllers/session");
 const aafSubscriptionsRouter = require("./controllers/aaf-subscriptions");
 const aafPartnerDevice = require("./controllers/aaf-partnerDevice");
 const externalAPIRouter = require("./controllers/externalAPIRouter");
+const b2cRouter = require("./controllers/b2c");
 const app = express();
 const cors = require("cors");
 // view engine setup
@@ -34,6 +35,7 @@ app.use("/server", serverRouter);
 app.use("/session", sessionRouter);
 app.use("/aaf/v1.4.4/subscriptions", aafSubscriptionsRouter);
 app.use("/api/v2/aaf/partnerDevice", aafPartnerDevice);
+app.use("/b2c/login", b2cRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
