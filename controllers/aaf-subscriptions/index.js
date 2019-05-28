@@ -2,7 +2,7 @@ const express = require("express");
 const serverRouter = new express.Router();
 
 serverRouter.post("/:idType/:idValue/:uid.json", async (req, res, next) => {
-  let resp = req.query["success"]
+  let resp = !req.query["notFound"]
     ? {
         resultCode: "20100",
         developerMessage: "Success",
