@@ -6,6 +6,9 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const vmtRouter = require("./controllers/vmt");
 const shopRouter = require("./controllers/shop");
+const serverRouter = require("./controllers/server");
+const profileRouter = require("./controllers/profile");
+const sessionRouter = require("./controllers/session");
 const externalAPIRouter = require("./controllers/externalAPIRouter");
 const app = express();
 const cors = require("cors");
@@ -23,6 +26,10 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/vmt", vmtRouter);
 app.use("/ExternalAPI", externalAPIRouter);
 app.use("/api/shop-cdns/upload", shopRouter);
+//AppleTV
+app.use("/profile", profileRouter);
+app.use("/server", serverRouter);
+app.use("/session", sessionRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
