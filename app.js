@@ -35,7 +35,7 @@ app.use("/server", serverRouter);
 app.use("/session", sessionRouter);
 app.use("/aaf/v1.4.4/subscriptions", aafSubscriptionsRouter);
 app.use("/api/v2/aaf/partnerDevice", aafPartnerDevice);
-app.use("/b2c/login", b2cRouter);
+app.use("/loginByB2B2C", b2cRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

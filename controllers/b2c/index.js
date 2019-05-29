@@ -5,7 +5,8 @@ serverRouter.post("/", async (req, res, next) => {
   let resp = !req.query["notFound"]
     ? {
         resultCode: "20000",
-        developerMessage: "Success"
+        developerMessage: "Success",
+        privateId: "123fewf34"
       }
     : {
         resultCode: "40401",
