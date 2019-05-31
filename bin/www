@@ -29,7 +29,7 @@ if (process.env.NODE_ENV === "prod") {
     key: key,
     cert: cert
   };
-  server = https.createServer(options, app);
+  https.createServer(options, app).listen(port);
   console.log("Protocal HTTPS");
 }
 
@@ -37,7 +37,7 @@ if (process.env.NODE_ENV === "prod") {
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
+server.listen(9011);
 server.on("error", onError);
 server.on("listening", onListening);
 
