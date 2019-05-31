@@ -43,3 +43,28 @@ RUN npm install -g pm2 && npm install express express-winston winston && npm ins
 EXPOSE ${CONTAINER_PORT}
 
 CMD pm2 start ${PM2_FILE} --no-daemon
+
+FROM node:8-alpine
+ENV TZ=Asia/Bangkok
+
+RUN apk --no-cache add g++ gcc libgcc libstdc++ linux-headers make python
+RUN npm install --quiet node-gyp -g
+
+RUN apk add tzdata \
+  && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime \
+  && echo $TZ > /etc/timezone \
+  && npm install \
+  && mkdir -p /app/ssl
+
+ARG CONTAINER_PORT
+ARG PM2_FILE
+ENV PM2_FILE ${PM2_FILE}
+WORKDIR /app/
+
+COPY . /app
+
+RUN npm install -g pm2 && npm install express express-winston winston && npm install
+
+EXPOSE 9011
+
+CMD pm2 start ${PM2_FILE} --no-daemon

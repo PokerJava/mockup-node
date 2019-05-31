@@ -122,6 +122,7 @@ pipeline {
                                 && docker rmi ${DOCKER_REGISTRY}/${DOCKER_IMG_NAME}:${DOCKER_TAG} || echo 'ignore' \
                                 && docker pull ${DOCKER_REGISTRY}/${DOCKER_IMG_NAME}:${DOCKER_TAG} \
                                 && docker run -d --restart always --name ${DOCKER_IMG_NAME} -p ${DOCKER_MAPPING_PORT} \
+                                && docker run -d --restart always --name http-${DOCKER_IMG_NAME} -p 9011:9011 \
                                     -v ${MOUNT_PATH} --hostname ${DOCKER_IMG_NAME} ${DOCKER_REGISTRY}/${DOCKER_IMG_NAME}:${DOCKER_TAG} ",
                                 execTimeout: 120000,
                                 flatten: false,
