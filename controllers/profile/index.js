@@ -39,21 +39,33 @@ profileRouter
     return res.json(resp);
   })
   .put("/devices", async (req, res, next) => {
-    let resp = {
-      profile_uuid: "88fc4e378fea4021a94b2d7268fbf767",
-      devices: {
-        C8TJ500QF1MN: "SUCCESS"
-      }
-    };
+    let resp = !req.query["notFound"]
+      ? {
+          profile_uuid: "88fc4e378fea4021a94b2d7268fbf767",
+          devices: {
+            C8TJ500QF1MN: "SUCCESS"
+          }
+        }
+      : {
+          devices: {
+            C8TJ500QF1MN: "NOT_ACCESSIBLE"
+          }
+        };
     return res.json(resp);
   })
   .delete("/devices", async (req, res, next) => {
-    let resp = {
-      devices: {
-        C8TJ500QF1MN: "SUCCESS",
-        B7CJ500QF1MA: "NOT_ACCESSIBLE"
-      }
-    };
+    let resp = !req.query["notFound"]
+      ? {
+          devices: {
+            C8TJ500QF1MN: "SUCCESS",
+            B7CJ500QF1MA: "NOT_ACCESSIBLE"
+          }
+        }
+      : {
+          devices: {
+            C8TJ500QF1MN: "NOT_ACCESSIBLE"
+          }
+        };
     return res.json(resp);
   });
 
