@@ -43,7 +43,7 @@ profileRouter
       ? {
           profile_uuid: "88fc4e378fea4021a94b2d7268fbf767",
           devices: {
-            C8TJ500QF1MN: "SUCCESS"
+            [req.body.devices[0]]: "SUCCESS"
           }
         }
       : {
