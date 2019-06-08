@@ -3,31 +3,34 @@ const profileRouter = new express.Router();
 
 profileRouter
   .post("/tvprovider", async (req, res, next) => {
-    let resp = req.body["user_token"]
-      ? {
-          profile_uuid: "88fc4e378fea4021a94b2d7268fbf767",
-          devices: {
-            C8TJ500QF1MN: "SUCCESS"
+    let resp;
+    if (req.body["user_token"]) {
+      resp = {
+        profile_uuid: "88fc4e378fea4021a94b2d7268fbf767",
+        devices: {
+          [req.body.devices[0]]: "SUCCESS"
+        }
+      };
+    } else {
+      resp = {
+        devices: {
+          [req.body.devices[0]]: {
+            response_status: "SUCCESS",
+            model: "AppleTV",
+            description: "Apple TV",
+            color: "BLACK",
+            device_assigned_by: "idetnity_team@tvprovider.com",
+            device_assigned_date: "2018-01-01T14:30:00Z",
+            profile_uuid: "88fc4e378fea4021a94b2d7268fbf767",
+            profile_assign_time: "2018-01-01T00:00:00Z",
+            profile_push_time: "2018-02-01T00:00:00Z"
+          },
+          B7CJ500QF1MA: {
+            response_status: "NOT_FOUND"
           }
         }
-      : {
-          devices: {
-            C8TJ500QF1MN: {
-              response_status: "SUCCESS",
-              model: "AppleTV",
-              description: "Apple TV",
-              color: "BLACK",
-              device_assigned_by: "idetnity_team@tvprovider.com",
-              device_assigned_date: "2018-01-01T14:30:00Z",
-              profile_uuid: "88fc4e378fea4021a94b2d7268fbf767",
-              profile_assign_time: "2018-01-01T00:00:00Z",
-              profile_push_time: "2018-02-01T00:00:00Z"
-            },
-            B7CJ500QF1MA: {
-              response_status: "NOT_FOUND"
-            }
-          }
-        };
+      };
+    }
     return res.json(resp);
   })
   .get("/tvprovider", async (req, res, next) => {
