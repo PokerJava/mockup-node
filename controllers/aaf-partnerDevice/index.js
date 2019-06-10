@@ -50,7 +50,7 @@ serverRouter
             }
           ]
         };
-    return res.json(resp);
+    return res.status(!req.query["notFound"] ? 200 : 401).json(resp);
   })
   .delete("/:idType/:idValue.json", async (req, res, next) => {
     let resp = !req.query["notFound"]
