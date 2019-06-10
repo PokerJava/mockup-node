@@ -33,11 +33,6 @@ if (process.env.NODE_ENV === "prod") {
   console.log("Protocal HTTPS");
 }
 
-/**
- * Listen on provided port, on all network interfaces.
- */
-
-//
 server.listen(9011);
 server.on("error", onError);
 server.on("listening", onListening);
