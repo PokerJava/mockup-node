@@ -31,10 +31,10 @@ serverRouter
           uuid: ["oekfirj94kr040rkeoj303jd0", "oekfirj94kr040rkeo1239"],
           devicelist: [
             {
-              deviceid: "C8TJ500QF1MN"
+              deviceId: "C8TJ500QF1MN"
             },
             {
-              deviceid: "appleTV|XXXX|YYYY|ZZZZ"
+              deviceId: "appleTV|XXXX|YYYY|ZZZZ"
             }
           ]
         }
