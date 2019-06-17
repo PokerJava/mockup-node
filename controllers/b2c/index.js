@@ -2,6 +2,8 @@ const express = require("express");
 const serverRouter = new express.Router();
 
 serverRouter.post("/", async (req, res, next) => {
+  res.set("X-App", "appName=netflixstb; appVersion=1.0.0;");
+  res.set("X-Session-Id", "weww62CCxLcPDLhncIXn");
   let resp = !req.query["notFound"]
     ? {
         resultCode: "20000",
