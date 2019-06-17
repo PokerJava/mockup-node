@@ -1,6 +1,5 @@
 const express = require("express");
 const serverRouter = new express.Router();
-//
 
 serverRouter
   .post("/:idType/:idValue.json", async (req, res, next) => {
