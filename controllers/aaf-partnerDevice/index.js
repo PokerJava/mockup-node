@@ -27,8 +27,8 @@ serverRouter
       ? {
           resultCode: "20000",
           developerMessage: "Success",
-          publicId: "66123456789",
-          uuid: "oekfirj94kr040rkeoj303jd0",
+          publicId: ["66123456789"],
+          uuid: ["oekfirj94kr040rkeoj303jd0", "oekfirj94kr040rkeo1239"],
           devicelist: [
             {
               deviceid: "C8TJ500QF1MN"
