@@ -29,13 +29,9 @@ serverRouter
           developerMessage: "Success",
           publicId: ["66123456789"],
           uuid: ["oekfirj94kr040rkeoj303jd0", "oekfirj94kr040rkeo1239"],
-          devicelist: [
-            {
-              deviceId: "C8TJ500QF1MN"
-            },
-            {
-              deviceId: "appleTV|XXXX|YYYY|ZZZZ"
-            }
+          devicelist:[
+            "QzhUSjUwMFFGMU1O",
+            "QzhUSjUwMFFGMlNX"
           ]
         }
       : {
