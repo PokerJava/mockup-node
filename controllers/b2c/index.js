@@ -2,11 +2,11 @@ const express = require("express");
 const serverRouter = new express.Router();
 
 serverRouter.post("/", async (req, res, next) => {
-  res.set("X-App", "appName=netflixstb; appVersion=1.0.0;");
-  res.set("X-Session-Id", "weww62CCxLcPDLhncIXn");
+  res.set("x-app", "appName=netflixstb; appVersion=1.0.0;");
+  res.set("x-session-id", "weww62CCxLcPDLhncIXn");
   let resp = !req.query["notFound"]
     ? {
-        resultCode: "20000",
+        resultCode: "20100",
         developerMessage: "Success",
         privateId: "123fewf34"
       }
@@ -15,9 +15,9 @@ serverRouter.post("/", async (req, res, next) => {
         developerMessage: "Data Not Found"
       };
   res.set({
-    "X-Seesion-Id": "123456789",
-    "X-App": "appName=cookieRun;appVersion=1.0.1",
-    "X-Partner-Specific-Private-Id": "partner specific-private"
+    "x-session-id": "123456789",
+    "x-app": "appName=cookieRun;appVersion=1.0.1",
+    "x-partner-specific-private-id": "partner specific-private"
   });
   return res.json(resp);
 });
