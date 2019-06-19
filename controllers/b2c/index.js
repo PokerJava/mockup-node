@@ -19,7 +19,7 @@ serverRouter.post("/", async (req, res, next) => {
     "x-app": "appName=cookieRun;appVersion=1.0.1",
     "x-partner-specific-private-id": "partner specific-private"
   });
-  return res.json(resp);
+  return res.status(201).json(resp);
 });
 
 module.exports = serverRouter;
