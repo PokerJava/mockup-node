@@ -12,15 +12,26 @@ serverRouter
   .get("/:idType/:idValue.json", async (req, res, next) => {
    
     let resp =  {
-       "resultCode":"20000",
-       "developerMessage":"Success",
-       "publicId":["66123456789"],
-       "uuid":["oekfirj94kr040rkeoj303jd0"],
-    "devicelist":[
-       "QzhUSjUwMFFGMU1O",
-       "QzhUSjUwMFFGMlNX"
-    ]
-  }
+      
+        "resultCode":"20000",
+        "developerMessage":"Success",
+        "partnerDevice":[
+           
+       {
+          "deviceId":"WFhYWHxZWVlZfFpaWlo",
+       "uuid":"oekfirj94kr040rkeoj303jd0",
+       "publicId":"66123456789",
+       "model":"appleTV"
+       },
+       {
+          "deviceId":"WFhYWHxZWVlZfFpaWlo",
+       "uuid":"oekfirj94kr040rkeoj303jd1",
+       "publicId":"66123456789",
+       "model":"appleTV"
+       }
+        ]
+     }
+     
     /* let resp =  {
            resultCode: "20000",
            developerMessage: "Success",
@@ -32,8 +43,6 @@ serverRouter
            ]
          }
 
-    */
-    /*
          let resp =  {
           resultCode: "50003",
           developerMessage: "Connection Error",
