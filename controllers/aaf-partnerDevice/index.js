@@ -18,13 +18,13 @@ serverRouter
         "partnerDevice":[
            
        {
-          "deviceId":"WFhYWHxZWVlZfFpaWlo",
+       "deviceId":"WFhYWHxZWVlZfFpaWlo",
        "uuid":"oekfirj94kr040rkeoj303jd0",
        "publicId":"66123456789",
        "model":"appleTV"
        },
        {
-          "deviceId":"WFhYWHxZWVlZfFpaWlo",
+       "deviceId":"WFhYWHxZWVlZfFpaWlx",
        "uuid":"oekfirj94kr040rkeoj303jd1",
        "publicId":"66123456789",
        "model":"appleTV"
