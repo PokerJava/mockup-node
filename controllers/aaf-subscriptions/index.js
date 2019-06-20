@@ -2,8 +2,7 @@ const express = require("express");
 const serverRouter = new express.Router();
 
 serverRouter.post("/:idType/:idValue/:uid.json", async (req, res, next) => {
-  let resp = !req.query["notFound"]
-    ? {
+  let resp =  {
         resultCode: "20100",
         developerMessage: "Success",
         privateId:
@@ -17,19 +16,6 @@ serverRouter.post("/:idType/:idValue/:uid.json", async (req, res, next) => {
           }
         ]
       }
-    : {
-        resultCode: "40401",
-        developerMessage: "Data Not Found",
-        errorMessageStack: [
-          {
-            node: "SDF",
-            resultCode: "40401",
-            developerMessage: "Not found xxx",
-            moreInfo: "to be define"
-          }
-        ]
-      };
-
   return res.json(resp);
 });
 
