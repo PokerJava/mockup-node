@@ -13,6 +13,7 @@ const aafSubscriptionsRouter = require("./controllers/aaf-subscriptions");
 const aafPartnerDevice = require("./controllers/aaf-partnerDevice");
 const externalAPIRouter = require("./controllers/externalAPIRouter");
 const b2cRouter = require("./controllers/b2c");
+const blockChain = require("./controllers/block-chain");
 const app = express();
 const cors = require("cors");
 // view engine setup
@@ -36,6 +37,7 @@ app.use("/session", sessionRouter);
 app.use("/aaf/v1.4.4/subscriptions", aafSubscriptionsRouter);
 app.use("/api/v2/aaf/partnerDevice", aafPartnerDevice);
 app.use("/loginByB2B2C", b2cRouter);
+app.use("/blockChain/api", blockChain);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -44,6 +46,7 @@ app.use(function(req, res, next) {
 
 // error handler
 app.use(function(err, req, res, next) {
+  req.useChunkedEncodingByDefault = true;
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};

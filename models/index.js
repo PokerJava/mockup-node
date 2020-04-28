@@ -7,6 +7,7 @@ const {
   EventSchema
 } = require("./schema");
 
+
 let NotifyTargets = new Schema(NotifyTargetSchema);
 let NotifyBroadcasts = new Schema(NotifyBroadcastSchema);
 let NotifyPOIs = new Schema(NotifyPOISchema);

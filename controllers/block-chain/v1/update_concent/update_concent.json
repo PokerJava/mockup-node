@@ -1,0 +1,7 @@
+{
+    "resultCode": "20000",
+    "developerMessage": "success",
+    "dataRes": {
+            "TEST": "OK"
+    }
+  }
